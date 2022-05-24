@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title>INCEPTION</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        /* 반응형 */
+        @media screen and (max-width: 767px) {
+            #left { float:none; margin: 0 auto; width: 80%;}
+            #right {
+                width: 80%;
+                margin: 0 auto;
+                border-top: 1.5px solid #3d5469;
+                padding-top: 20px;
+                margin-top: 20px;
+            }
+            #right img { width: 100%; }
+        }
+        @media screen and (min-width: 767px) {
+            #left { float: left; width: 48%;}
+            #right {
+                float: right; width: 48%;
+                border-top: none;
+                border-left: 1.5px solid #3d5469;
+                padding-left: 10px;
+            }
+        }
+        /* 초기화 */
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+        a { text-decoration: none; color: black;}
+        img { border: 0; }
+        li { list-style: none; }
+
+        /* 공통 */
+        .container {
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+        #page { font-weight: bold; }
+
+        /* 페이지 구성 */
+        body {
+            width: 100%; height: 100%;
+            margin: 0 auto;
+            background: linear-gradient(to top, black, #3D5469);
+        }
+        #page-wrapper {
+            background: white;
+            margin: 70px;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        /* 헤더 */
+        #main-header {
+            padding: 10px 5px;
+            margin-bottom: 10px;
+            height: 100px;
+        }
+        #main-header h1 {
+            font-weight: bold;
+            line-height: 100px;
+            text-align: center;
+        }
+        #main-header h1 a { color: #C42124; }
+
+        /* 내비 */
+        nav {
+            border-top: 1.5px solid #3D5469;
+            border-bottom: 1.5px solid #3D5469;
+            margin-bottom: 20px;
+            height: 40px;
+        }
+        #main-menu > li { position: relative; float: left; }
+        #main-menu > li > a {
+            display: block;
+            padding: 8px 16px;
+            text-align: center;
+            text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.05);
+        }
+
+        /* 본문 */
+        #main-content { padding: 20px 20px 40px; overflow: hidden; }
+        
+        /* 본문(홈) */
+        #right {
+            text-align: center;
+            height: inherit;
+        }
+        #left h2 { text-align: center; }
+
+        /* 푸터 */
+        #main-footer { padding-top: 30px; clear: both; }
+        footer {
+            border-top: 1.5px solid #3D5469;
+            font-size: 12px;
+            text-align: center;
+            line-height: 30px;
+        }
+        #cat {
+            width: 200px;
+            border-radius: 70%;
+        }
+    </style>
+</head>
+<body>
+    <div id="page-wrapper">
+        <div id="main-header">
+            <header class="container">
+                <div>
+                    <h1><a href="0.INCEPTION.html">INCEPTION</a></h1>
+                </div>
+            </header>
+        </div>
+        <div id="main-navigation">
+            <nav>
+                <ul id="main-menu">
+                    <li id="page"><a href="1.Home.html">홈</a></li>
+                    <li><a href="2.MovieIntroduce.html">영화 소개</a></li>
+                    <li><a href="3.Timeline.html">타임라인</a></ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div id="main-content">
+            <div id="left">
+                <h2>Intro</h2><br><br><br>
+                안녕하세요 컴퓨터 공학부 202015006 조희연입니다.<br><br>
+                이번 웹프로그래밍 프로젝트에서 영화 '인셉션'을 주제로 웹페이지를 만들어 보았습니다.<br><br>
+                이 웹에서는 영화 소개 부분과 유명한 영화 장면 부분을 나눠 소개하였고, 그 중
+                개인적으로 인상 깊었던 장면들을 꼽아 웹프로그래밍 수업에서 배운 것을 기초로 표현해 보았습니다.<br><br>
+                평소 좋아하던 영화라 정말 재밌게 만들었고 많이 고민하며 배웠던 유익한 시간이였습니다.<br><br>
+                부족하지만 잘 봐주시면 감사하겠습니다.<br><br><br><br>
+                <marquee behavior="scroll" direction="right" scrolldelay="1"><img src="Home/고양이.jpg" id="cat"></marquee>
+            </div>
+            <div id="center"></div>
+            <div id="right">
+                <img src="Home/stop.jpg" onmouseover="this.src='home/spin.gif'" onmouseout="this.src='home/stop.jpg'" style="margin-bottom: 10px;"><br>
+                마우스를 올려보세요!<br><br><br><br><br><br><br><br>
+            </div>
+        </div>
+        <div id="main-footer">
+            <footer class="container">
+                <div>컴퓨터 공학부 202015006 조희연 / 웹프로그래밍 프로젝트 과제</div>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>

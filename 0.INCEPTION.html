@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta http-equiv="refresh" content="3; url=1.Home.html">
+    <title>INCEPTION</title>
+    <style>
+        /* 반응형 */
+        @media screen and (max-width: 767px) {
+            .main { display: none; }
+            .mobileMain { display: ""; }
+        }
+        @media screen and (min-width: 767px) {
+            .main { display: ""; }
+            .mobileMain { display: none; }
+        }
+        /* 기본 */
+        * { background-color: black; }
+        img {
+            max-width: 100%;
+            min-width: 100%;
+            left: 0; right: 0;
+            top: 0; bottom: 0;
+            margin: auto;
+            overflow: auto;
+            position: fixed;
+        }
+    </style>
+</head>
+<body>
+    <img src="INCEPTION/main.jpg" class="main">
+    <img src="INCEPTION/mobileMain.jpg" class="mobileMain">
+</body>
+</html>

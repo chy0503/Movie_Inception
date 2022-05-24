@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title>INCEPTION</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        /* 반응형 */
+        @media screen and (max-width: 767px) {
+            .box {
+                text-align: center;
+                width: 90%; height: 90%;
+                margin-bottom: 40px;
+                overflow: hidden;   
+            }
+            .info {
+                border-top: 1.5px solid #3d5469;
+                padding-top: 60px;
+                margin-bottom: 40px;
+                width: 90%;
+                overflow: hidden;
+                display: none;
+            }
+            #outer { width: 200%;}
+            #br { display: none; }
+        }
+        @media screen and (min-width: 767px) {
+            #br { display: none; }
+            .box {
+                float: left;
+                width: 40%;
+                margin-left: 50px;
+                margin-right: 45px;
+                margin-bottom: 80px;
+                overflow: hidden;   
+            }
+            .info {
+                padding-left: 20px;
+                margin-bottom: 80px;
+                float: left;
+                width: 48%;
+                overflow: hidden;
+                display: none;
+            }
+            #outer { left: 250px; width: 90%;}
+        }
+        /* 초기화 */
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+        a { text-decoration: none; color: black;}
+        img { border: 0; }
+        li { list-style: none; }
+
+        /* 공통 */
+        .container {
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+        #page { font-weight: bold; }
+
+        /* 페이지 구성 */
+        body {
+            width: 100%; height: 100%;
+            margin: 0 auto;
+            background: linear-gradient(to top, black, #3D5469);
+        }
+        #page-wrapper {
+            background: white;
+            margin: 70px; 
+            padding: 10px 20px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        /* 헤더 */
+        #main-header {
+            padding: 10px 5px;
+            margin-bottom: 10px;
+            height: 100px;
+        }
+        #main-header h1 {
+            font-weight: bold;
+            line-height: 100px;
+            text-align: center;
+        }
+        #main-header h1 a { color: #C42124; }
+
+        /* 내비 */
+        nav {
+            border-top: 1.5px solid #3D5469;
+            border-bottom: 1.5px solid #3D5469;
+            margin-bottom: 20px;
+            height: 40px;
+        }
+        #main-menu > li { position: relative; float: left; }
+        #main-menu > li > a {
+            display: block;
+            padding: 8px 16px;
+            text-align: center;
+            text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.05);
+        }
+
+        /* 본문 */
+        #main-content { padding: 20px 20px 40px; overflow: hidden; width: 100%;}
+        
+        /* 본문(타임라인) */
+        /* 좌측 이미지 */
+        .box img{
+            width: 80%;
+            object-fit:cover;
+            transform:scale(1.0);        
+            transition: transform 0.5s; 
+        }
+        .box img:hover{
+            transform: scale(40);
+            transition: transform 0.5s;
+        }
+        /* 0단계 */        
+        span {
+            font-weight: bold;
+            display: block;
+            margin-top: 50px;
+            margin-bottom: 3px;
+        }
+        table { 
+            border-top: 2px solid rgba(61, 84, 105, 0.5);
+            text-align: left;
+        }
+        th {
+            font-weight: normal;
+            color: gray;
+            padding-left: 8px;
+        }
+        td { padding-left: 8px; }
+        #b:hover { font-weight: bold; }
+        /* 1단계 */
+        @keyframes raining {
+            0% { margin-top: -1000%; }
+            100% { margin-top: 3000%; }
+        }
+        .rain {
+            animation-name: raining;
+            animation-duration: 8s;
+            animation-iteration-count: infinite;
+        }
+        #wrap { height: 500px; overflow: hidden;}
+        .rainContainer {
+            width: 30px; height: 200px;
+            margin: 0 auto;
+            margin-right: 30px;
+            float: left;
+        }
+        .rainContainer img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+        }
+        .rotate {
+            animation: rotate_image 30s linear infinite;
+            transform-origin: 50% 50%;
+            width: 50%;
+        }
+        /* 2단계 */
+        .rotate:hover { 
+            animation-play-state : paused;
+        }
+        @keyframes rotate_image{
+            100% { transform: rotate(360deg); }
+        }
+        .rotateContainer {
+            height: 350px;  
+        }
+        .rotate {
+            position: relative;
+            display: block;
+            margin: 0 auto;
+        }
+        .RunningMan {
+            width: 40%;
+            position: relative;
+            display: block;
+            top: -150px;
+            margin: 0 auto;
+        }
+        /* 3단계*/
+        #outer {
+            position: relative;
+            background-color: black;
+            height: 300px;
+            transform: translateX(-50%); border:3px solid white;
+            overflow: hidden;
+        }
+        .snowflake {
+            height: 600px;
+            color: white;
+            font-family: Arial;
+            text-shadow: 0 0 1px #000;
+            position: absolute;
+            top: -10%; z-index: 9999;
+            user-select: none;
+            cursor: default;
+            animation-name: snowflakes-fall, snowflakes-shake;
+            animation-duration: 10s, 3s;
+            animation-timing-function: linear, ease-in-out;
+            animation-iteration-count: infinite, infinite;
+            animation-play-state: running, running;
+        }
+        @-webkit-keyframes snowflakes-fall {
+            0% { top: -10% }
+            100% { top: 600px }
+        }
+        @-webkit-keyframes snowflakes-shake {
+            0%, 100% { transform: translateX(0) }
+            50% { transform: translateX(80px) }
+        }
+        @keyframes snowflakes-fall {
+            0% { top: -10% } 100% { top: 600px }
+        }@keyframes snowflakes-shake {
+            0%, 100% { transform: translateX(0) }
+            50% { transform: translateX(80px) }
+        }
+        .snowflake:nth-of-type(0) { left:1%; animation-delay:0s, 0s }
+        .snowflake:nth-of-type(1) { left:5%; animation-delay:1s, 1s }
+        .snowflake:nth-of-type(2) { left:10%; animation-delay:6s, 2s }
+        .snowflake:nth-of-type(3) { left:15%; animation-delay:4s, 2s }
+        .snowflake:nth-of-type(4) { left:20%; animation-delay:2s, 2s }
+        .snowflake:nth-of-type(5) { left:25%; animation-delay:8s, 3s }
+        .snowflake:nth-of-type(6) { left:30%; animation-delay:5s, 2s }
+        .snowflake:nth-of-type(7) { left:35%; animation-delay:9.5s, 1s }
+        .snowflake:nth-of-type(8) { left:40%; animation-delay:1s, 0s }
+        .snowflake:nth-of-type(9) { left:45%; animation-delay:3s, 1.5s }
+        .snowflake:nth-of-type(10) { left:50%; animation-delay:0s, 0s }
+        .snowflake:nth-of-type(11) { left:55%; animation-delay:1s, 0.5s }
+        .snowflake:nth-of-type(12) { left:60%; animation-delay:6s, .5s }
+        .snowflake:nth-of-type(13) { left:65%; animation-delay:4s, 1s }
+        .snowflake:nth-of-type(14) { left:70%; animation-delay:2s, 4s }
+        .snowflake:nth-of-type(15) { left:75%; animation-delay:8s, 3s }
+        .snowflake:nth-of-type(16) { left:80%; animation-delay:6s, 2s }
+        .snowflake:nth-of-type(17) { left:85%; animation-delay:2.5s, 1s }
+        .snowflake:nth-of-type(18) { left:90%; animation-delay:1s, 0s }
+        .snowflake:nth-of-type(19) { left:95%; animation-delay:3s, 1.5s }
+        /* 4단계 */
+        #man { text-align: center; }
+        #man img { width: 90%; }
+        
+        /* 푸터 */
+        #main-footer { padding-top: 30px; clear: both; }
+        footer {
+            border-top: 1.5px solid #3D5469;
+            font-size: 12px;
+            text-align: center;
+            line-height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div id="page-wrapper">
+        <div id="main-header">
+            <header class="container">
+                <div>
+                    <h1><a href="0.INCEPTION.html">INCEPTION</a></h1>
+                </div>
+            </header>
+        </div>
+        <div id="main-navigation">
+            <nav>
+                <ul id="main-menu">
+                    <li><a href="1.Home.html">홈</a></li>
+                    <li><a href="2.MovieIntroduce.html">영화 소개</a></li>
+                    <li id="page"><a href="3.Timeline.html">타임라인</a></li><div id="br"><br><br></div>
+                    <li style="float: right;"><a target="_blank" href="https://www.youtube.com/watch?v=Q3Kvu6Kgp88">Edith Piaf - Non, Je ne regrette rien</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div id="main-content">
+            <div class="box"><img src="Timeline/0.png" onmouseout="unhover(this);" id="change"></div>
+            <script>
+                var index = 1;
+                function unhover(element) {
+                    element.setAttribute('src', 'Timeline/' + index + '.png');
+                    if (index == 1) {
+                        document.getElementById("stage0").style.display = "none";
+                        document.getElementById("stage1").style.display = "block";
+                    }
+                    else if (index == 2) {
+                        document.getElementById("stage1").style.display = "none";
+                        document.getElementById("stage2").style.display = "block";
+                    }
+                    else if (index == 3) {
+                        document.getElementById("stage2").style.display = "none";
+                        document.getElementById("stage3").style.display = "block";
+                    }
+                    else if (index == 4) {
+                        document.getElementById("stage3").style.display = "none";
+                        document.getElementById("stage4").style.display = "block";
+                    }
+                    else if (index == 0) {
+                        document.getElementById("stage4").style.display = "none";
+                        document.getElementById("stage0").style.display = "block";
+                    }
+                    ++index;
+                    if (index == 5) { index = 0; }
+                }
+            </script>
+            <div class="info" id="stage0" style="display: block;">
+                <h2>현실</h2><div id="br"><br></div>
+                <span>인셉션의 타임라인</span><br>
+                <table>
+                    <tr>
+                        <th>꿈의 단계</th>
+                        <th>꿈을 지키는 사람</th>
+                        <th>꿈을 꾸는 장소</th>
+                    </tr>
+                    <tr id="b">
+                        <td>현실</td>
+                        <td>사이토의 부하 스튜어디스</td>
+                        <td>보잉 747 1등석</td>
+                    </tr>
+                    <tr>
+                        <td>1단계</td>
+                        <td>유서프</td>
+                        <td>달리는 승합차</td>
+                    </tr>
+                    <tr>
+                        <td>2단계</td>
+                        <td>아서</td>
+                        <td>호텔 528호실</td>
+                    </tr>
+                    <tr>
+                        <td>3단계</td>
+                        <td>임스, 사이토</td>
+                        <td>설원의 비밀기지</td>
+                    </tr>
+                    <tr>
+                        <td>4단계</td>
+                        <td>없음</td>
+                        <td>림보</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="info" id="stage1">
+                <h2 style="margin-bottom: 20px;">1단계</h2><br>
+                <div id="wrap">
+                    <div class="rainContainer"><img class='rain' src="Timeline/2/s1.jpg" style="animation-delay: 3s;"></div>
+                    <div class="rainContainer"><img class='rain' src="Timeline/2/s2.jpg" style="animation-delay: 1s;"></div>
+                    <div class="rainContainer"><img class='rain' src="Timeline/2/s3.jpg" ></div>
+                    <div class="rainContainer"><img class='rain' src="Timeline/2/s4.jpg" style="animation-delay: 7s;"></div>
+                    <div class="rainContainer"><img class='rain' src="Timeline/2/s5.jpg" style="animation-delay: 4s;"></div>
+                    <div class="rainContainer"><img class='rain' src="Timeline/2/s6.jpg" style="animation-delay: 6s;"></div>
+                    <div class="rainContainer"><img class='rain' src="Timeline/2/s7.jpg" style="animation-delay: 2s;"></div>
+                </div>
+            </div>
+            <div class="info" id="stage2"">
+                <h2>2단계</h2><br>
+                <div class="rotateContainer">
+                    <img class="rotate" src="Timeline/3/run.jpg">
+                    <img class="RunningMan" src="Timeline/3/running.gif">
+                </div>
+            </div>
+            <div class="info" id="stage3">
+                <h2>3단계</h2><br>
+                <div id="outer">
+                    <div class="snowflakes" aria-hidden="true">
+                        <div class="snowflake" style="font-size: 26px">&#x2746;</div>
+                        <div class="snowflake" style="font-size: 10px">&#x2746;</div>
+                        <div class="snowflake" style="font-size: 16px">&#x2746;</div>
+                        <div class="snowflake" style="font-size: 20px">&#x2749;</div>
+                        <div class="snowflake" style="font-size: 20px">요</div>
+                        <div class="snowflake" style="font-size: 20px">&#x2746;</div>	
+                        <div class="snowflake" style="font-size: 22px">&#x2746;</div>
+                        <div class="snowflake" style="font-size: 18px">이</div>
+                        <div class="snowflake" style="font-size: 18px">내</div>
+                        <div class="snowflake" style="font-size: 20px">눈</div>
+                        <div class="snowflake" style="font-size: 28px">&#x2746;</div>
+                        <div class="snowflake" style="font-size: 20px">려</div>
+                        <div class="snowflake" style="font-size: 22px">&#x2746;</div>
+                        <div class="snowflake" style="font-size: 20px">&#x2746;</div>
+                        <div class="snowflake" style="font-size: 18px">&#x2746;</div>
+                        <div class="snowflake" style="font-size: 16px">&#x2749;</div>
+                        <div class="snowflake" style="font-size: 18px">&#x2746;</div>
+                        <div class="snowflake" style="font-size: 26px">&#x2749;</div>
+                        <div class="snowflake" style="font-size: 28px">&#x2746;</div>
+                    </div>
+                </div>
+            </div>
+            <div class="info" id="stage4">
+                <h2>4단계</h2><br>
+                <div id="man">
+                    <img src="Timeline/4/1.jpg" onmouseover="this.src='Timeline/4/2.jpg'" onmouseout="this.src='Timeline/4/1.jpg'">
+                    <br>"난 늙은이라네. 후회에 가득 차 홀로 죽기만을 기다리는."<br>
+                    "믿음을 가져볼터인가? 아니면 후회하며 혼자 늙어 죽을 건가?"
+                </div>
+            </div>
+        </div>
+        <div id="main-footer">
+            <footer class="container">
+                <div>컴퓨터 공학부 202015006 조희연 / 웹프로그래밍 프로젝트 과제</div>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>

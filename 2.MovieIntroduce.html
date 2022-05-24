@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title>INCEPTION</title>
+    <style>
+        /* 반응형 */
+        @media screen and (max-width: 767px) {
+            #main-content img {
+                width: 100%; 
+                margin-left: 0;
+                margin-bottom: 20px;
+            }
+        }
+        @media screen and (min-width: 767px) {
+            #main-content img {
+                width: 40%; 
+                float: right;
+                margin-left: 50px;
+            }
+        }
+        /* 초기화 */
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+        a { text-decoration: none; color: black;}
+        img { border: 0; }
+        li { list-style: none; }
+
+        /* 공통 */
+        .container {
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+        #page { font-weight: bold; }
+
+        /* 페이지 구성 */
+        body {
+            width: 100%; height: 100%;
+            margin: 0 auto;
+            background: linear-gradient(to top, black, #3D5469);
+        }
+        #page-wrapper {
+            background: white;
+            margin: 70px;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        /* 헤더 */
+        #main-header {
+            padding: 10px 5px;
+            margin-bottom: 10px;
+            height: 100px;
+        }
+        #main-header h1 {
+            font-weight: bold;
+            line-height: 100px;
+            text-align: center;
+        }
+        #main-header h1 a { color: #C42124; }
+
+        /* 내비 */
+        nav {
+            border-top: 1.5px solid #3D5469;
+            border-bottom: 1.5px solid #3D5469;
+            margin-bottom: 20px;
+            height: 40px;
+        }
+        #main-menu > li { position: relative; float: left; }
+        #main-menu > li > a {
+            display: block;
+            padding: 8px 16px;
+            text-align: center;
+            text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.05);
+        }
+
+        /* 본문 */
+        #main-content { padding: 20px 20px 40px; overflow: hidden; }
+        
+        /* 본문(영화 소개) */
+        #main-content span {
+            font-weight: bold;
+            display: block;
+            margin-top: 50px;
+            margin-bottom: 3px;
+        }
+        #main-content table { 
+            border-left: 2px solid rgba(61, 84, 105, 0.5);
+            text-align: left;
+        }
+        #main-content th {
+            font-weight: normal;
+            width: 80px;
+            padding-left: 5px;
+            color: gray;
+        }
+
+        /* 푸터 */
+        #main-footer { padding-top: 30px; clear: both; }
+        footer {
+            border-top: 1.5px solid #3D5469;
+            font-size: 12px;
+            text-align: center;
+            line-height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div id="page-wrapper">
+        <div id="main-header">
+            <header class="container">
+                <div>
+                    <h1><a href="0.INCEPTION.html">INCEPTION</a></h1>
+                </div>
+            </header>
+        </div>
+        <div id="main-navigation">
+            <nav>
+                <ul id="main-menu">
+                    <li><a href="1.Home.html">홈</a></li>
+                    <li id="page"><a href="2.MovieIntroduce.html">영화 소개</a></li>
+                    <li><a href="3.Timeline.html">타임라인</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div id="main-content">
+            <h2><a href="https://movie.naver.com/movie/bi/mi/basic.nhn?code=52515" target="_blank"><인셉션></a></h2><br>
+            <div><a href="https://tv.naver.com/v/11871066" target="_blank"><img src="MovieIntoruduce/poster.jpg"></a></div>
+            <div id="info">
+                <table>
+                    <tr>
+                        <th>개봉</th>
+                        <td>2010.07.21.</td>
+                    </tr>
+                    <tr>
+                        <th>등급</th>
+                        <td>12세 관람가</td>
+                    </tr>
+                    <tr>
+                        <th>장르</th>
+                        <td>액션, 모험, SF, 스릴러</td>
+                    </tr>
+                    <tr>
+                        <th>국가</th>
+                        <td>미국, 영국</td>
+                    </tr>
+                    <tr>
+                        <th>러닝타임</th>
+                        <td>147분</td>
+                    </tr>
+                    <tr>
+                        <th>배급</th>
+                        <td>(주)디스테이션</td>
+                    </tr>
+                </table>
+            </div>
+            <div id="introduce">
+                <span>소개</span><br>
+                타인의 꿈에 들어가 생각을 훔치는 특수 보안요원 코브. 그를 이용해 라이벌 기업의 정보를 
+                빼내고자 하는 사이토는 코브에게 생각을 훔치는 것이 아닌, 생각을 심는 ‘인셉션’ 작전을 제안한다. 
+                성공 조건으로 국제적인 수배자가 되어있는 코브의 신분을 바꿔주겠다는 거부할 수 없는 제안을 하고, 
+                사랑하는 아이들에게 돌아가기 위해 그 제안을 받아들인다. 최강의 팀을 구성, 표적인 피셔에게 접근해서 
+                ‘인셉션’ 작전을 실행하지만 예기치 못한 사건들과 마주하게 되는데… 꿈 VS 현실 시간, 규칙, 타이밍 모든 
+                것이 완벽해야만 하는, 단 한 번도 성공한 적 없는 ‘인셉션’ 작전이 시작된다!
+            </div>
+            <div>
+                <span>감독/출연</span><br>
+                <table>
+                    <tr>
+                        <th>감독/각본</th>
+                        <td><a target="_blank" href="https://search.naver.com/search.naver?where=nexearch&sm=tab_etc&pkid=1&os=105770&qvt=0&query=%ED%81%AC%EB%A6%AC%EC%8A%A4%ED%86%A0%ED%8D%BC%20%EB%86%80%EB%9E%80">크리스토퍼 놀란</a></td>
+                    </tr>
+                    <tr>
+                        <th>주연</th>
+                        <td><a target="_blank" href="https://search.naver.com/search.naver?where=nexearch&sm=tab_etc&pkid=1&os=94247&qvt=0&query=%EB%A0%88%EC%98%A4%EB%82%98%EB%A5%B4%EB%8F%84%20%EB%94%94%EC%B9%B4%ED%94%84%EB%A6%AC%EC%98%A4">레오나르도 디카프리오</a></td>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td><a target="_blank" href="https://search.naver.com/search.naver?where=nexearch&sm=tab_etc&pkid=1&os=101032&qvt=0&query=%EC%99%80%ED%83%80%EB%82%98%EB%B2%A0%20%EC%BC%84">와타나베 켄</a></td>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td><a target="_blank" href="https://search.naver.com/search.naver?where=nexearch&sm=tab_etc&pkid=1&os=112216&qvt=0&query=%EC%A1%B0%EC%85%89%20%EA%B3%A0%EB%93%A0%20%EB%A0%88%EB%B9%97">조셉 고든 레빗</a></td>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td><a target="_blank" href="https://search.naver.com/search.naver?where=nexearch&sm=tab_etc&pkid=1&os=106656&qvt=0&query=%EB%A7%88%EB%A6%AC%EC%98%B9%20%EA%BC%AC%EB%9D%A0%EC%95%84%EB%A5%B4">마리옹 꼬띠아르</a></td>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td><a target="_blank" href="https://search.naver.com/search.naver?where=nexearch&sm=tab_etc&pkid=1&os=126102&qvt=0&query=%EC%97%98%EB%A0%8C%20%ED%8E%98%EC%9D%B4%EC%A7%80">엘리엇 페이지</a></td>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td><a target="_blank" href="https://search.naver.com/search.naver?where=nexearch&sm=tab_etc&pkid=1&os=128587&qvt=0&query=%ED%86%B0%20%ED%95%98%EB%94%94">톰 하디</a></td>
+                    </tr>
+                    <tr>
+                        <th>조연</th>
+                        <td><a target="_blank" href="https://search.naver.com/search.naver?where=nexearch&sm=tab_etc&pkid=1&os=107361&qvt=0&query=%ED%82%AC%EB%A6%AC%EC%96%B8%20%EB%A8%B8%ED%94%BC">킬리언 머피</a></td>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td><a target="_blank" href="https://search.naver.com/search.naver?where=nexearch&sm=tab_etc&pkid=1&os=99505&qvt=0&query=%ED%86%B0%20%EB%B2%A0%EB%A6%B0%EC%A0%80">톰 베린저</a></td>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td><a target="_blank" href="https://search.naver.com/search.naver?where=nexearch&sm=tab_etc&pkid=1&os=99440&qvt=0&query=%EB%A7%88%EC%9D%B4%ED%81%B4%20%EC%BC%80%EC%9D%B8">마이클 케인</a></td>
+                    </tr>
+                    <tr>
+                        <th>음악</th>
+                        <td><a target="_blank" href="https://search.naver.com/search.naver?where=nexearch&sm=tab_etc&pkid=1&os=122860&qvt=0&query=%ED%95%9C%EC%8A%A4%20%EC%A7%90%EB%A8%B8">한스 짐머</a></td>
+                    </tr>
+                </table>
+                <p style="font-size: 12px;"><br>누르면 네이버 인물정보 페이지로 이동합니다.</p>
+            </div>
+            <div id="awards">
+                <span>수상내역</span><br>
+                <table>
+                    <tr>
+                        <th>2010</th>
+                        <td>23회 시카고 비평가 협회상(각본상, 촬영상)</td>
+                    </tr>
+                    <tr>
+                        <th>2011</th>
+                        <td>16회 크리틱스 초이스 시상식(촬영상, 편집상, 시각효과상, 음향상, 액션영화상)</td>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td>26회 산타바바라 국제영화제(말틴 모던 마스터 상)</td>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td>17회 미국 배우 조합상(영화부문 스턴트 상)</td>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td>63회 미국 작가 조합상(각본상)</td>
+                    </tr><tr>
+                        <th></th>
+                        <td>64회 영국 아카데미 시상식(음향상, 특수시각효과상, 프로덕션디자인상)</td>
+                    </tr><tr>
+                        <th></th>
+                        <td>83회 미국 아카데미 시상식(촬영상, 음향편집상, 음향믹싱상, 시각효과상)</td>
+                    </tr><tr>
+                        <th></th>
+                        <td>20회 MTV영화제(최고의 공포연기상)</td>
+                    </tr>
+                    </tr><tr>
+                        <th></th>
+                        <td>37회 새턴 어워즈(최우수 SF영화상, 최우수 감독상, 최우수 각본상, 최우수 음악상, 최우수 특수효과상)</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div id="main-footer">
+            <footer class="container">
+                <div>컴퓨터 공학부 202015006 조희연 / 웹프로그래밍 프로젝트 과제</div>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>
